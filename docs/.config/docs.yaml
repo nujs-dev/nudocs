@@ -11,7 +11,7 @@ socials:
   discord: "#"
 sponsors:
   api: https://sponsors.pi0.io/sponsors.json
-url: "https://nudocs.pages.dev"
+url: "https://nudocs.deno.dev"
 # redirects:
 #   "/guide": "/docs"
 automd: true
