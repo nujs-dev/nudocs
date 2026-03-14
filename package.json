@@ -1,6 +1,6 @@
 {
   "name": "nudocs",
-  "version": "0.4.16",
+  "version": "0.0.1",
   "license": "MIT",
   "repository": "nujs-dev/nudocs",
   "bin": {
