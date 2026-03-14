@@ -1,0 +1,15 @@
+# yaml-language-server: $schema=https://unpkg.com/nudocs/schema/config.json
+
+name: "packageName"
+shortDescription: "Documentation for packageName."
+description: "Documentation for packageName."
+github: "nujs-dev/packageName"
+# url: "https://packageName.nujs.dev"
+# redirects:
+#   "/from": "/to"
+# automd: true
+landing:
+  heroLinks:
+    primary:
+      icon: "i-heroicons-book-open"
+      to: "/docs"
