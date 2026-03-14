@@ -1,6 +1,18 @@
 # Changelog
 
 
+## v0.0.3
+
+[compare changes](https://github.com/nujs-dev/nudocs/compare/v0.0.2...v0.0.3)
+
+### 🤖 CI
+
+- Publish with npm token ([7d51c58](https://github.com/nujs-dev/nudocs/commit/7d51c58))
+
+### ❤️ Contributors
+
+- Hupeh <hupeh@qq.com>
+
 ## v0.0.2
 
 

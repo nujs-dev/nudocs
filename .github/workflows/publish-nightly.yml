@@ -1,0 +1,25 @@
+name: publish-nightly
+on:
+  push:
+    branches: [main]
+permissions: { id-token: write, contents: read }
+concurrency:
+  group: publish-nightly-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+        with: { fetch-depth: 0 }
+      - run: npm i -fg corepack && corepack enable
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 24
+          cache: "pnpm"
+          registry-url: "https://registry.npmjs.org"
+      - run: pnpm install
+      - run: pnpm changelogen --bump --canary nightly
+      - run: npm publish --tag nightly
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
