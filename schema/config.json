@@ -1,0 +1,380 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "$schema": {
+      "type": "string"
+    },
+    "dir": {
+      "type": "string",
+      "description": "Documentation directory\n\nNote: This option will be automatically set"
+    },
+    "lang": {
+      "type": "string",
+      "description": "The language of the documentation site.",
+      "default": "en"
+    },
+    "name": {
+      "type": "string",
+      "description": "The name of the documentation site."
+    },
+    "description": {
+      "type": "string",
+      "description": "The description of the documentation site."
+    },
+    "shortDescription": {
+      "type": "string",
+      "description": "The description of the documentation site."
+    },
+    "url": {
+      "type": "string",
+      "description": "The URL of the documentation site."
+    },
+    "github": {
+      "type": "string",
+      "description": "The GitHub repository for the documentation site."
+    },
+    "llms": {
+      "type": "object",
+      "description": "Configuration for `nuxt-llms` generation (`/llms.txt` and `/llms-full.txt`).",
+      "additionalProperties": false,
+      "properties": {
+        "domain": {
+          "type": "string",
+          "description": "Public site domain (e.g. https://example.com)."
+        },
+        "title": {
+          "type": "string",
+          "description": "Title used in `/llms.txt`."
+        },
+        "description": {
+          "type": "string",
+          "description": "Description used in `/llms.txt`."
+        },
+        "full": {
+          "type": "object",
+          "description": "Metadata for `/llms-full.txt`.",
+          "additionalProperties": false,
+          "properties": {
+            "title": {
+              "type": "string",
+              "description": "Title used in `/llms-full.txt`."
+            },
+            "description": {
+              "type": "string",
+              "description": "Description used in `/llms-full.txt`."
+            }
+          }
+        }
+      }
+    },
+    "socials": {
+      "type": "object",
+      "description": "Social media links for the documentation site.",
+      "additionalProperties": {
+        "type": "string"
+      }
+    },
+    "sponsors": {
+      "type": "object",
+      "properties": {
+        "api": {
+          "type": "string",
+          "description": "The URL to the sponsors JSON API."
+        }
+      }
+    },
+    "branch": {
+      "type": "string",
+      "description": "The branch of the GitHub repository for the documentation site."
+    },
+    "banner": {
+      "type": "object",
+      "description": "Banner configuration",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "A unique id saved to local storage to remember if the banner has been dismissed. Change this value to show the banner again."
+        },
+        "icon": {
+          "type": "string",
+          "description": "The icon displayed next to the title (e.g., 'i-lucide-info')."
+        },
+        "title": {
+          "type": "string",
+          "description": "The banner title text."
+        },
+        "actions": {
+          "type": "array",
+          "description": "Display a list of action buttons next to the title.",
+          "items": {
+            "type": "object",
+            "properties": {
+              "label": {
+                "type": "string",
+                "description": "Button label text"
+              },
+              "icon": {
+                "type": "string",
+                "description": "Button icon"
+              },
+              "to": {
+                "type": "string",
+                "description": "Button link destination"
+              },
+              "target": {
+                "type": "string",
+                "enum": ["_blank", "_parent", "_self", "_top"],
+                "description": "Link target attribute"
+              },
+              "color": {
+                "type": "string",
+                "enum": ["primary", "secondary", "success", "info", "warning", "error", "neutral"],
+                "description": "Button color"
+              },
+              "size": {
+                "type": "string",
+                "enum": ["xs", "sm", "md", "lg", "xl"],
+                "description": "Button size"
+              },
+              "variant": {
+                "type": "string",
+                "enum": ["solid", "outline", "soft", "subtle", "ghost", "link"],
+                "description": "Button variant"
+              }
+            }
+          }
+        },
+        "to": {
+          "type": "string",
+          "description": "Link destination URL or route path."
+        },
+        "target": {
+          "type": "string",
+          "enum": ["_blank", "_parent", "_self", "_top"],
+          "description": "Link target attribute."
+        },
+        "color": {
+          "type": "string",
+          "enum": ["primary", "secondary", "success", "info", "warning", "error", "neutral"],
+          "description": "Banner color theme.",
+          "default": "primary"
+        },
+        "close": {
+          "oneOf": [
+            {
+              "type": "boolean",
+              "description": "Display a close button to dismiss the banner."
+            },
+            {
+              "type": "object",
+              "description": "Close button configuration.",
+              "properties": {
+                "size": {
+                  "type": "string",
+                  "enum": ["xs", "sm", "md", "lg", "xl"],
+                  "description": "Close button size"
+                },
+                "color": {
+                  "type": "string",
+                  "enum": [
+                    "primary",
+                    "secondary",
+                    "success",
+                    "info",
+                    "warning",
+                    "error",
+                    "neutral"
+                  ],
+                  "description": "Close button color"
+                },
+                "variant": {
+                  "type": "string",
+                  "enum": ["solid", "outline", "soft", "subtle", "ghost", "link"],
+                  "description": "Close button variant"
+                }
+              }
+            }
+          ]
+        },
+        "closeIcon": {
+          "type": "string",
+          "description": "The icon displayed in the close button (e.g., 'i-lucide-x').",
+          "default": "i-lucide-x"
+        },
+        "ui": {
+          "type": "object",
+          "description": "UI customization classes for banner components.",
+          "properties": {
+            "root": {
+              "description": "Root element classes"
+            },
+            "container": {
+              "description": "Container element classes"
+            },
+            "left": {
+              "description": "Left section classes"
+            },
+            "center": {
+              "description": "Center section classes"
+            },
+            "right": {
+              "description": "Right section classes"
+            },
+            "icon": {
+              "description": "Icon element classes"
+            },
+            "title": {
+              "description": "Title element classes"
+            },
+            "actions": {
+              "description": "Actions container classes"
+            },
+            "close": {
+              "description": "Close button classes"
+            }
+          }
+        }
+      }
+    },
+    "versions": {
+      "type": "array",
+      "description": "The versions of the documentation site.",
+      "items": {
+        "type": "object",
+        "properties": {
+          "label": {
+            "type": "string",
+            "description": "The label of the version."
+          },
+          "to": {
+            "type": "string",
+            "description": "The URL to the version."
+          },
+          "active": {
+            "type": "boolean",
+            "description": "Whether the version is active on this documentation site."
+          }
+        }
+      }
+    },
+    "themeColor": {
+      "type": "string",
+      "description": "The theme color of the documentation site.\nIt will be used as the `theme-color` meta tag and a full palette of colors will be generated from it."
+    },
+    "automd": {
+      "type": "boolean",
+      "description": "Enable integration with https://automd.unjs.io"
+    },
+    "buildCache": {
+      "type": "boolean",
+      "description": "Enable build cache (experimental)"
+    },
+    "redirects": {
+      "description": "Redirects for the documentation site.",
+      "type": "object",
+      "additionalProperties": {
+        "type": "string"
+      }
+    },
+    "landing": {
+      "oneOf": [
+        {
+          "type": "boolean",
+          "const": false
+        },
+        {
+          "type": "object",
+          "description": "Landing page configuration",
+          "additionalProperties": false,
+          "properties": {
+            "description": {
+              "type": "string",
+              "description": "Page description"
+            },
+            "contributors": {
+              "type": "boolean",
+              "description": "Show contributors section"
+            },
+            "features": {
+              "type": "array",
+              "description": "Features section description",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "description": {
+                    "type": "string"
+                  },
+                  "icon": {
+                    "type": "string"
+                  },
+                  "title": {
+                    "type": "string"
+                  }
+                }
+              }
+            },
+            "featuresTitle": {
+              "type": "string",
+              "description": "Features section title"
+            },
+            "featuresLayout": {
+              "type": "string",
+              "description": "Features section layout to be in default place or in the hero (only if there is no code)",
+              "enum": ["default", "hero"]
+            },
+            "heroCode": {
+              "description": "Hero Codes",
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": ["content"],
+                  "properties": {
+                    "content": {
+                      "type": "string"
+                    },
+                    "lang": {
+                      "type": "string"
+                    },
+                    "title": {
+                      "type": "string"
+                    }
+                  }
+                }
+              ]
+            },
+            "heroDescription": {
+              "type": "string",
+              "description": "Additional text in hero (default is same as description)"
+            },
+            "heroLinks": {
+              "description": "Hero Links",
+              "type": "object",
+              "additionalProperties": {
+                "type": "object"
+              }
+            },
+            "heroSubtitle": {
+              "type": "string",
+              "description": "second hero title (default is same as shortDescription)"
+            },
+            "heroTitle": {
+              "type": "string",
+              "description": "main title (default is same as page title)"
+            },
+            "title": {
+              "type": "string",
+              "description": "Page title"
+            }
+          }
+        }
+      ]
+    }
+  }
+}
