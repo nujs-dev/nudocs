@@ -171,7 +171,7 @@ export default <Config>{
 
 Built-in generators such as `badges`, `file`, and `jsdocs` work out of the box. Custom generators only run when the block name matches the registered key:
 
-````md
+```md
 <!-- automd:badges color="yellow" name="defu" -->
 
 [![npm version](https://img.shields.io/npm/v/defu?color=yellow)](https://npmjs.com/package/defu)
@@ -184,7 +184,7 @@ Built-in generators such as `badges`, `file`, and `jsdocs` work out of the box. 
 automd works!
 
 <!-- /automd -->
-````
+```
 
 In the example above, `automd:badges` uses the built-in `badges` generator, while `automd:test` runs the custom generator defined in `.config/automd.ts`.
 
