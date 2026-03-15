@@ -9,8 +9,8 @@ socials:
   x: "https://x.com/nujsdev"
   bluesky: "https://bsky.app/profile/nujs.dev"
   discord: "#"
-sponsors:
-  api: https://sponsors.pi0.io/sponsors.json
+# sponsors:
+#   api: https://sponsors.pi0.io/sponsors.json
 url: "https://nudocs.deno.dev"
 # redirects:
 #   "/guide": "/docs"
