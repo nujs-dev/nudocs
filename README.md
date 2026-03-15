@@ -1,6 +1,6 @@
 # NuJS Docs
 
-Minimal Documentation Theme and CLI for shared usage across NuJS projects.
+A Minimalist Theme and CLI for Project  Documentation.
 
 <!-- automd:file src="./docs/.partials/warn.md" -->
 
@@ -24,19 +24,9 @@ Minimal Documentation Theme and CLI for shared usage across NuJS projects.
 
 </details>
 
-<!-- /automd -->
-
 ## License
 
-<!-- automd:contributors license=MIT author="pi0,atinux" -->
-
-Published under the [MIT](https://github.com/nujs-dev/nudocs/blob/main/LICENSE) license.
-Made by [@pi0](https://github.com/pi0), [@atinux](https://github.com/atinux) and [community](https://github.com/nujs-dev/nudocs/graphs/contributors) 💛
-<br><br>
-<a href="https://github.com/nujs-dev/nudocs/graphs/contributors">
-<img src="https://contrib.rocks/image?repo=nujs-dev/nudocs" />
-</a>
-
+<!-- automd:contributors license=MIT -->
 <!-- /automd -->
 
 <!-- automd:with-automd -->
