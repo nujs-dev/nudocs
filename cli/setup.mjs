@@ -4,6 +4,7 @@ import { existsSync } from "node:fs";
 import { mkdir } from "node:fs/promises";
 import { execSync } from "node:child_process";
 import { loadConfig, watchConfig } from "c12";
+import { searchForWorkspaceRoot } from "vite";
 import { defu } from "defu";
 
 const appDir = fileURLToPath(new URL("../app", import.meta.url));
@@ -24,6 +25,17 @@ export async function setupDocs(docsDir, opts = {}) {
 
   // Normalize dir
   docsconfig.dir = docsDir = resolve(docsconfig.dir || docsDir);
+
+  // Use the actual pnpm workspace root so Nuxt/Vite can serve assets
+  // resolved from the root node_modules/.pnpm store.
+  const workspaceDir = searchForWorkspaceRoot(docsDir);
+  const modulesDir = [
+    ...new Set([
+      resolve(workspaceDir, "node_modules"),
+      resolve(pkgDir, "node_modules"),
+      resolve(docsDir, "node_modules"),
+    ]),
+  ];
 
   globalThis.__DOCS_CWD__ = docsconfig.dir;
 
@@ -100,9 +112,9 @@ export async function setupDocs(docsDir, opts = {}) {
     rootDir: runtimeDir,
     srcDir: runtimeDir,
     buildDir: resolve(runtimeDir, ".nuxt"),
-    workspaceDir: docsDir,
+    workspaceDir,
     extends: [...(opts.extends || []), runtimeDir, appDir],
-    modulesDir: [resolve(pkgDir, "node_modules"), resolve(docsDir, "node_modules")],
+    modulesDir,
     modules: [fixLayers, "@nuxt/ui", "@nuxt/content"].filter(Boolean),
     // @ts-ignore
     docs: docsconfig,
