@@ -1,10 +1,9 @@
 import { defineCommand, runMain } from "citty";
 import consola from "consola";
-// import { relative } from "pathe"
 import { getContext } from "unctx";
 import { setupDocs } from "./setup.mjs";
 
-const HMRKeys = new Set(["description", "shortDescription", "landing"]);
+const HMRKeys = new Set(["description", "shortDescription", "landing", "banner", "socials"]);
 
 export function createCLI(opts) {
   const sharedArgs = {

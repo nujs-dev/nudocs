@@ -30,8 +30,6 @@ const { data: surround } = await useAsyncData(`${kebabCase(route.path)}-surround
 
 const navigation = inject<Ref<ContentNavigationItem[]>>("navigation");
 
-// console.log(JSON.stringify(navigation?.value, null, 2))
-
 function makeBreadcrumb(items: ContentNavigationItem[], path: string, level = 0) {
   const parent = [...items].find((i) => path.startsWith(i.path) && i.children?.length > 0);
   if (!parent) {
@@ -94,7 +92,7 @@ useHead({
       <UContentToc title="On this page" :links="page.body?.toc?.links || []" highlight />
     </template>
 
-    <UPageBody prose class="break-words">
+    <UPageBody prose class="wrap-break-word">
       <ContentRenderer v-if="page.body" :value="page" />
 
       <div class="space-y-6">
