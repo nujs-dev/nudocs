@@ -55,5 +55,5 @@ jobs:
         uses: denoland/deployctl@v1
         with:
           project: ${{ vars.DENO_DEPLOY_PROJECT }}
-          entrypoint: jsr:@std/http/file-server
+          entrypoint: https://raw.githubusercontent.com/tint/deploy-endpoints/refs/heads/main/deno-nudocs-server.ts
           root: docs/.output/public
